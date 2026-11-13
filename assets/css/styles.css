@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-navy: #091a3e;
+  --primary-blue: #0284c7;
+  --primary-cyan: #06b6d4;
+  --accent-teal: #14b8a6;
+  --light-bg: #f8fafc;
+  --dark-bg: #060e20;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure modern clip overflow for complete immunity against horizontal drag/jitter on mobile & tablet */
+html, body {
+  overflow-x: clip;
+}
+@supports not (overflow-x: clip) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Prevent animated AOS entrance transforms from causing horizontal scrolling on touch/tablet viewports */
+@media (max-width: 1024px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: translate3d(0, 18px, 0) !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0b1528;
+}
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.dark .glass-panel {
+  background: rgba(11, 23, 49, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+.glass-card-dark {
+  background: rgba(7, 18, 41, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Floating animation */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Ripple & Pulse effects */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(2, 132, 199, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6); }
+}
+.pulse-glow {
+  animation: pulseGlow 3s infinite;
+}
+
+/* Water Wave Background Animation */
+@keyframes waveAnimation {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.9); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+.wave-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z' fill='%230284c7' fill-opacity='0.15'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+  animation: waveAnimation 15s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Gradient text */
+.gradient-text-water {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 50%, #0d9488 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dark .gradient-text-water {
+  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 50%, #2dd4bf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Water Drop Badge */
+.water-badge {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.15) 0%, rgba(6, 182, 212, 0.2) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* RTL Specific Overrides */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Active navigation item indicator */
+.nav-link.active {
+  color: #0284c7;
+  font-weight: 700;
+  position: relative;
+}
+.dark .nav-link.active {
+  color: #38bdf8;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #0284c7, #06b6d4);
+  border-radius: 2px;
+}
+[dir="rtl"] .nav-link.active::after {
+  left: auto;
+  right: 0;
+}
+
+/* Hover Zoom Card */
+.hover-zoom-card {
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+.hover-zoom-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.18);
+}
+.dark .hover-zoom-card:hover {
+  box-shadow: 0 20px 35px -10px rgba(56, 189, 248, 0.22);
+}
+
+/* Custom Checkbox & Radio */
+input[type="checkbox"], input[type="radio"] {
+  accent-color: #0284c7;
+}
+
+/* Interactive Map Marker Pulse */
+.map-marker-pulse {
+  position: relative;
+}
+.map-marker-pulse::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 9999px;
+  background: rgba(6, 182, 212, 0.4);
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+

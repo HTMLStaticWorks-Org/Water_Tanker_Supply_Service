@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard | AquaVanguard Dispatch Management</title>
+  <meta name="description" content="Manage your water tanker deliveries, track live GPS location, order new bulk tankers, and review billing invoices.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%230284c7'/%3E%3Cstop offset='50%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3Cstyle%3E.b%7Bfill:%23ffffff%7D@media(prefers-color-scheme:dark)%7B.b%7Bfill:%230b1329%7D%7D%3C/style%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Crect x='2' y='2' width='28' height='28' rx='6.5' class='b'/%3E%3Cg transform='translate(4,4)' fill='none' stroke='%230ea5e9' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z'/%3E%3Cpath d='M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
+            },
+            navy: {
+              800: '#0b1d3a',
+              900: '#07152d',
+              950: '#040b18',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-slate-100 dark:bg-navy-950 text-slate-800 dark:text-slate-100 min-h-screen flex antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- ==========================================
+       DASHBOARD SIDEBAR
+       ========================================== -->
+  <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-navy-900 border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full lg:translate-x-0">
+    <div>
+      <!-- Brand Header -->
+      <div class="h-20 flex items-center justify-between px-6 border-b border-slate-100 dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-cyan-500 to-teal-400 p-0.5 shadow-md shadow-sky-500/20 flex items-center justify-center">
+            <div class="w-full h-full bg-white dark:bg-navy-900 rounded-[10px] flex items-center justify-center">
+              <i data-lucide="droplets" class="w-5 h-5 text-sky-500"></i>
+            </div>
+          </div>
+          <div class="whitespace-nowrap">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading block leading-none">
+              Aqua<span class="text-sky-500">Vanguard</span>
+            </span>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 dark:text-slate-400">Tanker Logistics</span>
+          </div>
+        </a>
+        <button id="dashboard-sidebar-close" class="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white lg:hidden">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="p-4 space-y-1.5 text-sm font-semibold">
+        <a href="#overview" data-tab="overview" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition bg-sky-500/10 text-sky-600 dark:text-sky-400">
+          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+          <span>Overview</span>
+        </a>
+        <a href="#book" data-tab="book" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600">
+          <i data-lucide="truck" class="w-5 h-5"></i>
+          <span>Book a Tanker</span>
+        </a>
+        <a href="#bookings" data-tab="bookings" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <span>My Bookings</span>
+        </a>
+        <a href="#track" data-tab="track" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600">
+          <i data-lucide="map-pin" class="w-5 h-5"></i>
+          <span>Track Deliveries</span>
+          <span class="ml-auto w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        </a>
+        <a href="#billing" data-tab="billing" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600">
+          <i data-lucide="receipt" class="w-5 h-5"></i>
+          <span>Billing & Invoices</span>
+        </a>
+        <a href="#profile" data-tab="profile" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600">
+          <i data-lucide="user" class="w-5 h-5"></i>
+          <span>My Profile</span>
+        </a>
+        <a href="#support" data-tab="support" class="dashboard-tab-link flex items-center gap-3 px-3.5 py-3 rounded-xl transition text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-sky-600">
+          <i data-lucide="headphones" class="w-5 h-5"></i>
+          <span>Help & Support</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom Account & Logout -->
+    <div class="p-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+      <div class="flex items-center gap-3 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/60">
+        <div class="w-9 h-9 rounded-xl bg-sky-600 text-white font-bold flex items-center justify-center font-heading text-xs">
+          JD
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-slate-900 dark:text-white truncate">Johnathan Doe</p>
+          <p class="text-[10px] text-slate-400 truncate">Premium Society Member</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition">
+        <i data-lucide="log-out" class="w-4 h-4"></i>
+        <span>Logout (Exit to Home)</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN DASHBOARD CONTENT AREA
+       ========================================== -->
+  <div class="flex-1 flex flex-col min-w-0 lg:pl-64">
+    
+    <!-- Top Dashboard Header Bar -->
+    <header class="h-20 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-30">
+      
+      <div class="flex items-center gap-4">
+        <button id="dashboard-sidebar-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 lg:hidden">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+        <div>
+          <h1 id="dashboard-current-title" class="text-xl font-bold font-heading text-slate-900 dark:text-white">Dashboard Overview</h1>
+          <p class="text-xs text-slate-400 hidden sm:block">Real-time tanker logistics & delivery management</p>
+        </div>
+      </div>
+
+      <!-- Controls & Avatar -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 transition" title="Toggle Light/Dark Theme">
+          <i data-lucide="sun" class="w-4 h-4 theme-sun-icon hidden"></i>
+          <i data-lucide="moon" class="w-4 h-4 theme-moon-icon"></i>
+        </button>
+
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 transition" title="Toggle RTL / LTR Direction" aria-label="Toggle Direction">
+          <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Back to Website -->
+        <a href="index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Visit Website
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Container with Tabs -->
+    <main class="flex-1 p-4 sm:p-8 space-y-8 overflow-y-auto">
+
+      <!-- ==========================================
+           TAB 1: OVERVIEW
+           ========================================== -->
+      <div id="tab-overview" class="dashboard-tab-content space-y-8">
+        
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div class="p-6 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-slate-400 uppercase">Total Bookings</span>
+              <div class="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-500 flex items-center justify-center">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <p id="stat-total-bookings" class="text-3xl font-black font-heading text-slate-900 dark:text-white">4</p>
+            <p class="text-xs text-slate-500 mt-1">Lifetime tanker orders</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-slate-400 uppercase">Active Deliveries</span>
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                <i data-lucide="truck" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <p id="stat-active-deliveries" class="text-3xl font-black font-heading text-amber-500">1</p>
+            <p class="text-xs text-slate-500 mt-1">1 en route right now</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-slate-400 uppercase">Completed</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <p id="stat-completed-deliveries" class="text-3xl font-black font-heading text-emerald-500">3</p>
+            <p class="text-xs text-slate-500 mt-1">100% on-time arrival</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-slate-400 uppercase">Pending Due</span>
+              <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
+                <i data-lucide="credit-card" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <p class="text-3xl font-black font-heading text-slate-900 dark:text-white">$0.00</p>
+            <p class="text-xs text-emerald-500 mt-1 font-semibold">All invoices settled</p>
+          </div>
+        </div>
+
+        <!-- Live Active Delivery Banner -->
+        <div class="p-6 rounded-2xl bg-gradient-to-r from-sky-950 via-slate-900 to-sky-950 border border-sky-800 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 animate-pulse">
+              <i data-lucide="navigation" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">● LIVE DISPATCH EN ROUTE</span>
+              <h3 class="text-lg font-bold font-heading">Order #AV-8842: 10,000L Stainless Tanker</h3>
+              <p class="text-xs text-slate-300">Driver Marcus Vance (TK-4029-SS) • Estimated arrival: <strong>22 minutes</strong></p>
+            </div>
+          </div>
+          <button onclick="activateTab('track')" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-navy-950 font-bold text-xs uppercase tracking-wider transition shadow">
+            Track Live GPS
+          </button>
+        </div>
+
+        <!-- Recent Booking Activity -->
+        <div class="rounded-2xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div class="p-4 sm:p-6 border-b border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="font-heading font-bold text-base text-slate-900 dark:text-white">Recent Booking Activity</h3>
+              <p class="text-xs text-slate-400">Your latest bulk water deliveries</p>
+            </div>
+            <button onclick="activateTab('bookings')" class="text-xs font-bold text-sky-600 dark:text-sky-400 hover:underline whitespace-nowrap">
+              View All Bookings
+            </button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[780px] text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-400 font-semibold uppercase">
+                <tr>
+                  <th class="py-3 px-4 whitespace-nowrap">Order ID</th>
+                  <th class="py-3 px-4 whitespace-nowrap">Capacity / Type</th>
+                  <th class="py-3 px-4 whitespace-nowrap">Address</th>
+                  <th class="py-3 px-4 whitespace-nowrap">Date</th>
+                  <th class="py-3 px-4 whitespace-nowrap">Amount</th>
+                  <th class="py-3 px-4 whitespace-nowrap">Status</th>
+                  <th class="py-3 px-4 text-right whitespace-nowrap">Action</th>
+                </tr>
+              </thead>
+              <tbody id="overview-recent-bookings"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 2: BOOK A WATER TANKER
+           ========================================== -->
+      <div id="tab-book" class="dashboard-tab-content hidden space-y-8">
+        
+        <div class="max-w-3xl rounded-3xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-8 shadow-xl">
+          <div class="mb-6">
+            <h2 class="text-2xl font-black font-heading text-slate-900 dark:text-white">Book a Water Tanker</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Select your required volume and drop site. Real-time driver dispatch upon confirmation.</p>
+          </div>
+
+          <form id="dashboard-new-booking-form" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Select Tanker Capacity *</label>
+                <select id="dash-capacity" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                  <option value="35">1,000L Mini Tanker</option>
+                  <option value="55">2,000L Domestic Tanker</option>
+                  <option value="95" selected>5,000L Standard Tanker (Popular)</option>
+                  <option value="160">10,000L Commercial Heavy Tanker</option>
+                  <option value="195">12,000L Industrial Tanker</option>
+                  <option value="290">20,000L Mega Bulk Carrier</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Water Requirement Grade *</label>
+                <select id="dash-water-type" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                  <option value="1.0">Potable Drinking RO Water (WHO Tested)</option>
+                  <option value="0.9">Domestic & Reservoir Sump Water</option>
+                  <option value="0.85">Construction Curing Raw Water</option>
+                  <option value="1.2">Industrial De-Mineralized (DM) Water</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Delivery Site Address *</label>
+              <input type="text" id="dash-address" required placeholder="e.g. Skyline Heights, Tower 4, Sector 14" value="Skyline Heights, Tower 4, West Bay" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Preferred Delivery Slot *</label>
+                <select id="dash-date" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                  <option value="Immediate Express (Under 60 Mins)">Immediate Express (Under 60 Mins)</option>
+                  <option value="Today Evening (5:00 PM - 7:00 PM)">Today Evening (5:00 PM - 7:00 PM)</option>
+                  <option value="Tomorrow Early Morning (6:00 AM - 8:00 AM)">Tomorrow Early Morning (6:00 AM - 8:00 AM)</option>
+                  <option value="Tomorrow Afternoon (1:00 PM - 3:00 PM)">Tomorrow Afternoon (1:00 PM - 3:00 PM)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Special Hose Instructions</label>
+                <input type="text" id="dash-instructions" placeholder="e.g. Requires 60m hose. Basement sump." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+              </div>
+            </div>
+
+            <!-- Price Summary Callout -->
+            <div class="p-4 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-between">
+              <div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Estimated Total (Inclusive of Water, Transport & Base Pumping)</p>
+                <p id="dash-price-estimate" class="text-2xl font-black font-heading text-sky-600 dark:text-sky-400 mt-0.5">$95.00</p>
+              </div>
+              <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                <i data-lucide="shield-check" class="w-4 h-4"></i> Locked Price Guarantee
+              </span>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-sky-600/25">
+              Confirm Tanker Booking
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 3: MY BOOKINGS
+           ========================================== -->
+      <div id="tab-bookings" class="dashboard-tab-content hidden space-y-6">
+        
+        <div class="rounded-3xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div>
+              <h2 class="text-xl font-bold font-heading text-slate-900 dark:text-white">Booking History</h2>
+              <p class="text-xs text-slate-400">Review upcoming, active, and completed tanker deliveries</p>
+            </div>
+            <button onclick="activateTab('book')" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition">
+              + New Tanker Order
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[780px] text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-400 font-semibold uppercase">
+                <tr>
+                  <th class="py-4 px-4 whitespace-nowrap">Booking ID</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Tanker Capacity & Grade</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Delivery Site</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Schedule</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Total Amount</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Status</th>
+                  <th class="py-4 px-4 text-right whitespace-nowrap">Details</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-bookings-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 4: TRACK DELIVERIES
+           ========================================== -->
+      <div id="tab-track" class="dashboard-tab-content hidden space-y-8">
+        
+        <div class="p-8 rounded-3xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 dark:border-slate-800 gap-4 mb-8">
+            <div>
+              <span class="text-xs font-mono font-bold text-sky-600 dark:text-sky-400">DISPATCH TRACKER</span>
+              <h2 class="text-2xl font-black font-heading text-slate-900 dark:text-white mt-1">
+                Order <span id="track-order-id">AV-8842</span>
+              </h2>
+              <p id="track-capacity" class="text-xs text-slate-500">10,000L Stainless Steel Tanker • Potable Drinking RO</p>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 flex items-center gap-3">
+              <i data-lucide="clock" class="w-6 h-6 text-sky-500 animate-spin"></i>
+              <div>
+                <p class="text-[10px] uppercase font-bold text-slate-400">Estimated Arrival</p>
+                <p id="track-eta" class="text-base font-extrabold text-sky-600 dark:text-sky-400 font-heading">22 mins</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tracking Timeline Steps -->
+          <div class="mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
+              
+              <!-- Step 1 -->
+              <div class="flex items-center sm:flex-col sm:text-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-emerald-500/20">
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-slate-900 dark:text-white">Booking Confirmed</h4>
+                  <p class="text-[10px] text-slate-400">Order logged in queue</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="flex items-center sm:flex-col sm:text-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-emerald-500/20">
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-slate-900 dark:text-white">Tanker Assigned</h4>
+                  <p class="text-[10px] text-slate-400">Water quality certified</p>
+                </div>
+              </div>
+
+              <!-- Step 3 (Active) -->
+              <div class="flex items-center sm:flex-col sm:text-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-sky-600/30 ring-4 ring-sky-100 dark:ring-sky-950 animate-pulse">
+                  <i data-lucide="truck" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-sky-600 dark:text-sky-400">Out for Delivery</h4>
+                  <p class="text-[10px] text-slate-400">Tanker en route via highway</p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="flex items-center sm:flex-col sm:text-center gap-3 opacity-50">
+                <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 flex items-center justify-center font-bold text-xs">
+                  4
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-slate-900 dark:text-white">Delivered</h4>
+                  <p class="text-[10px] text-slate-400">Sump pumped & confirmed</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Driver & Delivery Details -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-cyan-500 text-white font-bold flex items-center justify-center font-heading text-sm">
+                MV
+              </div>
+              <div>
+                <span class="text-[10px] uppercase font-bold text-slate-400">Assigned Driver</span>
+                <h4 id="track-driver-name" class="font-bold text-sm text-slate-900 dark:text-white">Marcus Vance</h4>
+                <p id="track-tanker-no" class="text-xs text-sky-600 dark:text-sky-400 font-mono">TK-4029-SS (Food Grade SS304)</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between sm:justify-end gap-3">
+              <a href="tel:555019283" class="px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition flex items-center gap-2">
+                <i data-lucide="phone" class="w-4 h-4"></i> Call Driver
+              </a>
+              <button onclick="showToast('Connecting with central dispatch supervisor...', 'success')" class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold transition">
+                Dispatch Help
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 5: BILLING & INVOICES
+           ========================================== -->
+      <div id="tab-billing" class="dashboard-tab-content hidden space-y-6">
+        
+        <div class="rounded-3xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+            <div>
+              <h2 class="text-xl font-bold font-heading text-slate-900 dark:text-white">Billing & Tax Invoices</h2>
+              <p class="text-xs text-slate-400">Download official tax invoices for your commercial or domestic records</p>
+            </div>
+            <button onclick="showToast('Exporting consolidated monthly statement PDF...', 'success')" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition">
+              Download Statement
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[720px] text-left text-xs">
+              <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-400 font-semibold uppercase">
+                <tr>
+                  <th class="py-4 px-4 whitespace-nowrap">Invoice #</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Date</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Description</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Total Amount</th>
+                  <th class="py-4 px-4 whitespace-nowrap">Payment Status</th>
+                  <th class="py-4 px-4 text-right whitespace-nowrap">PDF Invoice</th>
+                </tr>
+              </thead>
+              <tbody id="dashboard-invoices-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 6: MY PROFILE
+           ========================================== -->
+      <div id="tab-profile" class="dashboard-tab-content hidden space-y-6">
+        
+        <div class="max-w-2xl rounded-3xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+          <h2 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-6">Customer Profile & Saved Sites</h2>
+
+          <form id="dashboard-profile-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Full Name</label>
+                <input type="text" value="Johnathan Doe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Email Address</label>
+                <input type="email" value="client@aquavanguard.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Primary Phone</label>
+                <input type="tel" value="+1 (555) 428-8833" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Customer Account Type</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                  <option selected>Residential Society RWA</option>
+                  <option>Commercial Property</option>
+                  <option>Construction Contractor</option>
+                  <option>Individual Homeowner</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Default Delivery Address</label>
+              <input type="text" value="Skyline Heights, Tower 4, West Bay Boulevard, Sector 14" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+            </div>
+
+            <button type="submit" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider transition">
+              Save Profile Changes
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           TAB 7: HELP & SUPPORT
+           ========================================== -->
+      <div id="tab-support" class="dashboard-tab-content hidden space-y-6">
+        
+        <div class="max-w-2xl rounded-3xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-slate-800 p-8 shadow-sm">
+          <h2 class="text-xl font-bold font-heading text-slate-900 dark:text-white mb-2">Customer Support & Dispatch Complaints</h2>
+          <p class="text-xs text-slate-400 mb-6">Need assistance with a delivery or want to report an issue? Our team is on standby 24/7.</p>
+
+          <form id="dashboard-support-form" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Relates to Booking ID</label>
+              <input type="text" placeholder="e.g. AV-8842 or General Enquiry" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Issue Category</label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                <option>Delivery Delay Enquiry</option>
+                <option>Water Quality Test Verification</option>
+                <option>Billing / Invoice Adjustment</option>
+                <option>Driver Conduct or Site Feedback</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Explain Details</label>
+              <textarea rows="4" required placeholder="Describe your concern in detail..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+            </div>
+
+            <button type="submit" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider transition">
+              Submit Ticket to Dispatch Supervisor
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
+

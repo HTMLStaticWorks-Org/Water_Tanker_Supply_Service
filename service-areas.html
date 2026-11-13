@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Areas & Delivery Coverage | AquaVanguard Fleet</title>
+  <meta name="description" content="View AquaVanguard's bulk water tanker service zones, regional dispatch hubs, average delivery arrival times, and check your pincode availability online.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='100%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%230284c7'/%3E%3Cstop offset='50%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%2314b8a6'/%3E%3C/linearGradient%3E%3Cstyle%3E.b%7Bfill:%23ffffff%7D@media(prefers-color-scheme:dark)%7B.b%7Bfill:%230b1329%7D%7D%3C/style%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Crect x='2' y='2' width='28' height='28' rx='6.5' class='b'/%3E%3Cg transform='translate(4,4)' fill='none' stroke='%230ea5e9' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z'/%3E%3Cpath d='M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
+            },
+            navy: {
+              800: '#0b1d3a',
+              900: '#07152d',
+              950: '#040b18',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-slate-50 dark:bg-navy-950 text-slate-800 dark:text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-screen flex flex-col">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-navy-900 via-sky-900 to-navy-900 text-white text-xs py-2 px-4 border-b border-sky-800/40">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-1.5 font-medium text-sky-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          24/7 Emergency Dispatch Active
+        </span>
+        <span class="hidden sm:inline-block text-slate-400">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-slate-200">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-sky-400"></i> Hotline: +1 (800) 428-AQUA
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-slate-300 hidden md:inline">Average Dispatch Time: <strong class="text-sky-300">45-60 Mins</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN STICKY NAVIGATION -->
+  <header id="main-header" class="sticky top-0 z-40 transition-all duration-300 bg-white/90 dark:bg-navy-950/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="index.html" class="flex items-center gap-3 group flex-shrink-0 mr-4 xl:mr-8">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-sky-600 via-cyan-500 to-teal-400 p-0.5 shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform flex items-center justify-center">
+          <div class="w-full h-full bg-white dark:bg-navy-900 rounded-[10px] flex items-center justify-center">
+            <i data-lucide="droplets" class="w-5 h-5 sm:w-6 sm:h-6 text-sky-500"></i>
+          </div>
+        </div>
+        <div class="whitespace-nowrap">
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading block leading-none">
+            Aqua<span class="text-sky-500">Vanguard</span>
+          </span>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 dark:text-slate-400">Tanker Logistics</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV MENU -->
+      <nav class="hidden xl:flex items-center gap-3.5 xl:gap-5 text-xs xl:text-sm font-semibold text-slate-700 dark:text-slate-200 whitespace-nowrap">
+        <a href="index.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition whitespace-nowrap">Home 1</a>
+        <a href="home-2.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition whitespace-nowrap">Home 2</a>
+        <a href="about.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition whitespace-nowrap">About</a>
+        <a href="services.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition whitespace-nowrap">Services</a>
+        <a href="pricing.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition whitespace-nowrap">Rate Chart</a>
+        <a href="service-areas.html" class="nav-link active whitespace-nowrap">Service Areas</a>
+        <a href="contact.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition whitespace-nowrap">Contact</a>
+        <a href="dashboard.html" class="nav-link hover:text-sky-600 dark:hover:text-sky-400 transition flex items-center gap-1.5 text-sky-600 dark:text-sky-400 font-bold whitespace-nowrap">
+          <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i> Dashboard
+        </a>
+
+        <!-- Theme & RTL Controls (Aligned after Dashboard) -->
+        <div class="flex items-center gap-1 pl-2 border-l border-slate-200 dark:border-slate-800">
+          <button class="theme-toggle-btn w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-4 h-4 theme-sun-icon hidden text-amber-500"></i>
+            <i data-lucide="moon" class="w-4 h-4 theme-moon-icon text-sky-400"></i>
+          </button>
+          <button class="rtl-toggle-btn w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle RTL / LTR Direction" aria-label="Toggle Direction">
+            <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- RIGHT ACTIONS (Desktop Only) -->
+      <div class="hidden xl:flex items-center gap-2.5 xl:gap-3 flex-shrink-0">
+        <a href="signup.html" class="px-3 py-2 text-xs xl:text-sm font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 transition whitespace-nowrap">
+          Signup
+        </a>
+        <a href="dashboard.html#book" class="inline-flex items-center gap-2 px-4 xl:px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white text-xs xl:text-sm font-bold shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 whitespace-nowrap flex-shrink-0">
+          <i data-lucide="truck" class="w-4 h-4"></i> Book a Tanker
+        </a>
+      </div>
+
+      <!-- MOBILE HAMBURGER BUTTON (1024px, Tab & Mobile) -->
+      <div class="flex items-center xl:hidden">
+        <button id="mobile-menu-btn" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Open Navigation Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE OFFCANVAS DRAWER -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white dark:bg-navy-900 shadow-2xl p-6 flex flex-col justify-between hidden transition-transform duration-300">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-slate-800">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-cyan-500 to-teal-400 p-0.5 shadow-md shadow-sky-500/20 flex items-center justify-center">
+            <div class="w-full h-full bg-white dark:bg-navy-900 rounded-[10px] flex items-center justify-center">
+              <i data-lucide="droplets" class="w-5 h-5 text-sky-500"></i>
+            </div>
+          </div>
+          <div class="whitespace-nowrap">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading block leading-none">
+              Aqua<span class="text-sky-500">Vanguard</span>
+            </span>
+            <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 dark:text-slate-400">Tanker Logistics</span>
+          </div>
+        </a>
+        <button id="mobile-menu-close" class="p-2 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mt-6 text-base font-semibold text-slate-700 dark:text-slate-200">
+        <a href="index.html" class="hover:text-sky-500">Home 1</a>
+        <a href="home-2.html" class="hover:text-sky-500">Home 2</a>
+        <a href="about.html" class="hover:text-sky-500">About Us</a>
+        <a href="services.html" class="hover:text-sky-500">Services</a>
+        <a href="pricing.html" class="hover:text-sky-500">Rate Chart</a>
+        <a href="service-areas.html" class="text-sky-600 dark:text-sky-400 font-bold">Service Areas</a>
+        <a href="contact.html" class="hover:text-sky-500">Contact Us</a>
+        <a href="dashboard.html" class="text-cyan-600 dark:text-cyan-400 flex items-center gap-2">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Customer Dashboard
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-3">
+      <div class="flex items-center gap-2">
+        <button class="theme-toggle-btn w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:text-sky-600 transition" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <i data-lucide="sun" class="w-4 h-4 theme-sun-icon hidden text-amber-500"></i>
+          <i data-lucide="moon" class="w-4 h-4 theme-moon-icon text-sky-400"></i>
+        </button>
+        <button class="rtl-toggle-btn w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:text-sky-600 transition" title="Toggle RTL / LTR Direction" aria-label="Toggle Direction">
+          <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <a href="signup.html" class="w-full text-center py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-sm font-bold text-sky-600 dark:text-sky-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+        Signup
+      </a>
+      <a href="dashboard.html#book" class="w-full text-center py-3 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-sm shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2">
+        <i data-lucide="truck" class="w-4 h-4"></i> Book a Water Tanker
+      </a>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    <!-- ==========================================
+         SECTION 1: SERVICE AREA HERO
+         ========================================== -->
+    <section class="py-20 md:py-28 bg-gradient-to-b from-sky-50/50 via-white to-slate-50 dark:from-navy-950 dark:via-navy-900 dark:to-navy-950 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7" data-aos="fade-right">
+            <span class="inline-block px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300 text-xs font-bold uppercase tracking-wider mb-4">
+              Regional Delivery Network
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-black font-heading text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
+              Citywide Bulk Water Delivery Backed by 8 Strategically Placed Depots
+            </h1>
+            <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-xl">
+              Our decentralized fleet positioning ensures that no matter where your villa, high-rise society, or construction plot is located, an active tanker is always positioned within 15 kilometres.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md">
+              <a href="#checker" class="w-full px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-sm font-bold shadow-lg shadow-sky-600/25 transition inline-flex items-center justify-center whitespace-nowrap">
+                Check Area
+              </a>
+              <a href="dashboard.html#book" class="w-full px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white text-sm font-bold hover:bg-slate-100 transition inline-flex items-center justify-center whitespace-nowrap">
+                Book Tanker
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5" data-aos="fade-left">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 h-80 sm:h-96">
+              <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200&auto=format&fit=crop" 
+                   alt="City Water Logistics Fleet" 
+                   class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: MAIN CITY & NEIGHBORHOOD COVERAGE
+         ========================================== -->
+    <section class="py-20 bg-white dark:bg-navy-900 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span class="inline-block px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300 text-xs font-bold uppercase tracking-wider mb-3">
+            Zonal Breakdown
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
+            6 Primary Metropolitan Service Sectors
+          </h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+            Dedicated tanker teams assigned to every sector to guarantee fast response and deep local route knowledge.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover-zoom-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 text-xs font-bold">Zone 1</span>
+              <span class="text-xs text-emerald-500 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 18 Tankers Active</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">North Metropolitan</h3>
+            <p class="text-xs text-slate-500 mb-4">High-density residential towers & university town</p>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <p>• Green Hills, Sector 1 - 18</p>
+              <p>• Metro University Campus</p>
+              <p>• Lakeview Residency Enclaves</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Avg. ETA:</span>
+              <span class="font-bold text-sky-600 dark:text-sky-400">35 - 45 mins</span>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover-zoom-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold">Zone 2</span>
+              <span class="text-xs text-emerald-500 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 22 Tankers Active</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">South Tech Corridor</h3>
+            <p class="text-xs text-slate-500 mb-4">IT parks, luxury apartments & data centers</p>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <p>• Cyber City & Tech Park 4</p>
+              <p>• Silver Palms Gated Community</p>
+              <p>• Outer Ring Tech Hub</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Avg. ETA:</span>
+              <span class="font-bold text-teal-600 dark:text-teal-400">30 - 40 mins</span>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover-zoom-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-bold">Zone 3</span>
+              <span class="text-xs text-emerald-500 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 14 Tankers Active</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">Central Downtown & Heritage</h3>
+            <p class="text-xs text-slate-500 mb-4">Hotels, commercial malls & culinary streets</p>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <p>• Financial Centre & High Street</p>
+              <p>• Grand Central Boulevard</p>
+              <p>• Heritage Old Quarter (Compact)</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Avg. ETA:</span>
+              <span class="font-bold text-cyan-600 dark:text-cyan-400">40 - 50 mins</span>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover-zoom-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">Zone 4</span>
+              <span class="text-xs text-emerald-500 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 16 Tankers Active</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">East Suburban & Airport</h3>
+            <p class="text-xs text-slate-500 mb-4">New residential developments & logistics parks</p>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <p>• Airport Aerocity Zone</p>
+              <p>• Sunrise Meadows Enclave</p>
+              <p>• Logistics Gateway Sector</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Avg. ETA:</span>
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">40 - 55 mins</span>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover-zoom-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold">Zone 5</span>
+              <span class="text-xs text-emerald-500 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 12 Tankers Active</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">West Valley Foothills</h3>
+            <p class="text-xs text-slate-500 mb-4">Luxury hillside villas & resorts</p>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <p>• Valley View Heights</p>
+              <p>• Foothill Resort & Spas</p>
+              <p>• Pine Crest Private Estates</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Avg. ETA:</span>
+              <span class="font-bold text-amber-600 dark:text-amber-400">50 - 65 mins</span>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover-zoom-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold">Zone 6</span>
+              <span class="text-xs text-emerald-500 font-semibold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 15 Heavy Tankers</span>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-2">Harbour & Industrial Belt</h3>
+            <p class="text-xs text-slate-500 mb-4">Manufacturing factories & civil highway projects</p>
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 mb-6">
+              <p>• Heavy Industrial Estate Phase 1-3</p>
+              <p>• Port Marine Terminal</p>
+              <p>• Highway Expansion Expressway</p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center text-xs">
+              <span class="text-slate-400">Avg. ETA:</span>
+              <span class="font-bold text-rose-600 dark:text-rose-400">45 - 60 mins</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: RESIDENTIAL & COMMERCIAL DELIVERY COVERAGE
+         ========================================== -->
+    <section class="py-20 bg-slate-100 dark:bg-navy-950/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl" data-aos="fade-right">
+            <span class="text-xs font-bold uppercase text-sky-600 dark:text-sky-400">Residential Protocols</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-heading mt-2 mb-4">
+              Suburban & Residential Access Guarantees
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+              Narrow residential streets can be difficult for standard 10-wheeler trucks. We allocate nimble 1,000L to 3,000L compact tankers with 60-metre flexible food-grade hoses to navigate private gates, underground parking entrances, and tree-lined avenues without road blockages.
+            </p>
+            <div class="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+              <p class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Minimum driveway width required: 8.5 feet</p>
+              <p class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Quiet electric pumps for morning deliveries</p>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl" data-aos="fade-left">
+            <span class="text-xs font-bold uppercase text-teal-600 dark:text-teal-400">Commercial Protocols</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-heading mt-2 mb-4">
+              Commercial & High-Volume Industrial Corridors
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+              For tech campuses, concrete batching sites, and shopping malls, we provide dedicated staging coordinators who manage multi-tanker queues. Fast butterfly valve discharge unloads 12,000 litres in just 14 minutes, keeping traffic flows clear.
+            </p>
+            <div class="space-y-2 text-xs text-slate-500 dark:text-slate-400">
+              <p class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Security gate pre-authorization & driver verification</p>
+              <p class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Calibrated digital meters with paperless signature capture</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: DELIVERY AVAILABILITY & COVERAGE INFORMATION
+         ========================================== -->
+    <section class="py-20 bg-white dark:bg-navy-900 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span class="inline-block px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-300 text-xs font-bold uppercase tracking-wider mb-3">
+            Live Dispatch Telemetry
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
+            Regional Dispatch Hubs & Fleet Proximity
+          </h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-base">
+            Real-time status overview of our 8 regional tanker depots across the city.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto pb-4">
+          <div class="min-w-[700px] rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 overflow-hidden shadow-lg">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-slate-100 dark:bg-slate-750 text-slate-600 dark:text-slate-300 text-xs uppercase font-heading border-b border-slate-200 dark:border-slate-700">
+                <tr>
+                  <th class="py-4 px-6">Dispatch Depot</th>
+                  <th class="py-4 px-6">Available Fleet</th>
+                  <th class="py-4 px-6">Average Response</th>
+                  <th class="py-4 px-6">Operational Status</th>
+                  <th class="py-4 px-6 text-right">Zone Dispatch Line</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-700 font-medium text-slate-700 dark:text-slate-200">
+                <tr class="hover:bg-white dark:hover:bg-slate-700/50">
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Depot 01 - North Gateway</td>
+                  <td class="py-4 px-6">14 Tankers Standby</td>
+                  <td class="py-4 px-6 font-mono text-sky-600 dark:text-sky-400">38 mins</td>
+                  <td class="py-4 px-6"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-xs font-semibold">Normal Flow</span></td>
+                  <td class="py-4 px-6 text-right font-mono text-xs">+1 (800) 428-EXT1</td>
+                </tr>
+                <tr class="hover:bg-white dark:hover:bg-slate-700/50">
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Depot 02 - Cyber Hub South</td>
+                  <td class="py-4 px-6">19 Tankers Standby</td>
+                  <td class="py-4 px-6 font-mono text-sky-600 dark:text-sky-400">32 mins</td>
+                  <td class="py-4 px-6"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-xs font-semibold">Normal Flow</span></td>
+                  <td class="py-4 px-6 text-right font-mono text-xs">+1 (800) 428-EXT2</td>
+                </tr>
+                <tr class="hover:bg-white dark:hover:bg-slate-700/50">
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Depot 03 - Downtown Central</td>
+                  <td class="py-4 px-6">11 Tankers Standby</td>
+                  <td class="py-4 px-6 font-mono text-sky-600 dark:text-sky-400">45 mins</td>
+                  <td class="py-4 px-6"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 text-xs font-semibold">Moderate Traffic</span></td>
+                  <td class="py-4 px-6 text-right font-mono text-xs">+1 (800) 428-EXT3</td>
+                </tr>
+                <tr class="hover:bg-white dark:hover:bg-slate-700/50">
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Depot 04 - East Airport Logistics</td>
+                  <td class="py-4 px-6">15 Tankers Standby</td>
+                  <td class="py-4 px-6 font-mono text-sky-600 dark:text-sky-400">42 mins</td>
+                  <td class="py-4 px-6"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-xs font-semibold">Normal Flow</span></td>
+                  <td class="py-4 px-6 text-right font-mono text-xs">+1 (800) 428-EXT4</td>
+                </tr>
+                <tr class="hover:bg-white dark:hover:bg-slate-700/50">
+                  <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Depot 05 - Harbour Heavy Industrial</td>
+                  <td class="py-4 px-6">12 Mega Haulers</td>
+                  <td class="py-4 px-6 font-mono text-sky-600 dark:text-sky-400">48 mins</td>
+                  <td class="py-4 px-6"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-xs font-semibold">Heavy Duty Only</span></td>
+                  <td class="py-4 px-6 text-right font-mono text-xs">+1 (800) 428-EXT5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CHECK YOUR LOCATION FORM & CTA
+         ========================================== -->
+    <section id="checker" class="py-20 bg-slate-50 dark:bg-navy-950 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="p-8 sm:p-12 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xl text-center" data-aos="zoom-in">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-4">
+            <i data-lucide="map-pin" class="w-7 h-7"></i>
+          </div>
+          <h2 class="text-3xl font-extrabold font-heading text-slate-900 dark:text-white mb-3">
+            Check Water Tanker Availability in Your Area
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto mb-8">
+            Enter your neighborhood name, sector number, or postal code to instantly verify nearest tanker dispatch ETA and active fleet capacity.
+          </p>
+
+          <form id="pincode-checker-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 mb-6">
+            <input type="text" id="pincode-input" required placeholder="e.g. Sector 14, West Bay or 560012" class="flex-1 px-4 py-3 text-sm rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500">
+            <button type="submit" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-sky-600/30">
+              Verify Zone
+            </button>
+          </form>
+
+          <!-- Dynamic Result Box -->
+          <div id="pincode-check-result" class="hidden max-w-md mx-auto text-left transition-all"></div>
+
+          <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+            <span>✓ All Metropolitan Pincodes Covered</span>
+            <span>✓ 24/7 Night Deliveries Active</span>
+            <span>✓ Instant GPS Telemetry Link</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       GLOBAL FOOTER
+       ========================================== -->
+  <footer class="bg-slate-100 dark:bg-navy-950 text-slate-600 dark:text-slate-300 pt-16 pb-8 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200 dark:border-slate-800">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4 group">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-sky-600 via-cyan-500 to-teal-400 p-0.5 shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform flex items-center justify-center">
+              <div class="w-full h-full bg-white dark:bg-navy-900 rounded-[10px] flex items-center justify-center">
+                <i data-lucide="droplets" class="w-5 h-5 sm:w-6 sm:h-6 text-sky-500"></i>
+              </div>
+            </div>
+            <div class="whitespace-nowrap">
+              <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading block leading-none">
+                Aqua<span class="text-sky-500">Vanguard</span>
+              </span>
+              <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 dark:text-slate-400">Tanker Logistics</span>
+            </div>
+          </a>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 max-w-sm">
+            The premier technology-backed bulk water supply logistics provider. Serving residential societies, corporate campuses, industrial plants, and civil construction with certified purity and 24/7 GPS dispatch.
+          </p>
+          <div class="flex items-center gap-2.5 text-slate-400">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="AquaVanguard on Facebook" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800/90 hover:bg-[#1877F2] text-slate-500 dark:text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#1877F2]/30 border border-slate-200 dark:border-slate-700 hover:border-[#1877F2] group">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="AquaVanguard on Instagram" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800/90 hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] text-slate-500 dark:text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#DD2A7B]/30 border border-slate-200 dark:border-slate-700 hover:border-pink-500 group">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="AquaVanguard on X (Twitter)" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800/90 hover:bg-black text-slate-500 dark:text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-black/40 border border-slate-200 dark:border-slate-700 hover:border-slate-500 group">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="AquaVanguard on LinkedIn" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800/90 hover:bg-[#0A66C2] text-slate-500 dark:text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0A66C2]/30 border border-slate-200 dark:border-slate-700 hover:border-[#0A66C2] group">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="AquaVanguard on YouTube" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800/90 hover:bg-[#FF0000] text-slate-500 dark:text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#FF0000]/30 border border-slate-200 dark:border-slate-700 hover:border-[#FF0000] group">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="text-slate-900 dark:text-white font-heading font-bold text-base mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="index.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Home 1</a></li>
+            <li><a href="home-2.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Home 2 (Editorial)</a></li>
+            <li><a href="about.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">About Our Company</a></li>
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Our Services</a></li>
+            <li><a href="pricing.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Transparent Rate Chart</a></li>
+            <li><a href="service-areas.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Delivery Service Areas</a></li>
+            <li><a href="contact.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Contact Dispatch</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <h4 class="text-slate-900 dark:text-white font-heading font-bold text-base mb-4">Water Solutions</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Residential & Villa Supply</a></li>
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Apartment Sump Filling</a></li>
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Commercial & Hotel Water</a></li>
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Construction Curing Bulk</a></li>
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Industrial DM & Raw Water</a></li>
+            <li><a href="services.html" class="hover:text-sky-600 dark:hover:text-sky-400 transition">Emergency 24/7 Dispatch</a></li>
+            <li><a href="dashboard.html" class="hover:text-sky-600 dark:hover:text-sky-400 text-sky-600 dark:text-sky-400 font-semibold transition">Customer Dashboard</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter & Contact -->
+        <div>
+          <h4 class="text-slate-900 dark:text-white font-heading font-bold text-base mb-4">Stay Connected</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Subscribe for priority seasonal supply slots and rate alerts.</p>
+          <form class="newsletter-form space-y-2.5 mb-5">
+            <input type="email" required placeholder="Enter your email" class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-sky-500 shadow-sm transition">
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider transition">
+              Subscribe
+            </button>
+          </form>
+          <div class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+            <p class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-sky-500 dark:text-sky-400"></i> +1 (800) 428-AQUA</p>
+            <p class="flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-sky-500 dark:text-sky-400"></i> dispatch@aquavanguard.com</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
+        <p>&copy; 2026 AquaVanguard Logistics Ltd. All rights reserved.</p>
+        <div class="flex flex-wrap items-center justify-center gap-6">
+          <a href="#" class="hover:text-slate-900 dark:hover:text-slate-300 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-900 dark:hover:text-slate-300 transition">Terms of Service</a>
+          <a href="#" class="hover:text-slate-900 dark:hover:text-slate-300 transition">Water Quality Compliance</a>
+          <a href="dashboard.html" class="text-sky-600 dark:text-sky-400 hover:underline font-medium">Customer Portal</a>
+        </div>
+        <!-- Back to Top Button -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to Top" title="Back to Top" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800/90 hover:bg-sky-600 dark:hover:bg-sky-600 text-slate-600 dark:text-slate-300 hover:text-white dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/30 border border-slate-200 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 flex-shrink-0 group shadow-sm">
+          <svg class="w-4 h-4 transform group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
